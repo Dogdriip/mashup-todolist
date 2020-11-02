@@ -105,7 +105,7 @@ const TodoCreate = () => {
           <InsertForm onSubmit={onSubmit}>
             <Input
               autoFocus
-              placeholder="할 일을 입력 후, Enter를 누르세요"
+              placeholder="할 일 입력 후 Enter"
               value={value}
               onChange={onChange}
             />

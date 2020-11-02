@@ -1,27 +1,22 @@
-import React, { useReducer, createContext, useContext, useRef } from "react";
+import React, {
+  useState,
+  useReducer,
+  createContext,
+  useContext,
+  useRef,
+  useEffect,
+} from "react";
 
-const initialTodos = [
-  {
-    id: 1,
-    text: "테스트 1",
-    done: false,
-  },
-  {
-    id: 2,
-    text: "테스트 2",
-    done: true,
-  },
-  {
-    id: 3,
-    text: "테스트 3",
-    done: false,
-  },
-  {
-    id: 4,
-    text: "테스트 4",
-    done: false,
-  },
-];
+const initialTodos = () =>
+  window.localStorage.getItem("Todo")
+    ? JSON.parse(window.localStorage.getItem("Todo"))
+    : [
+        {
+          id: 1,
+          text: "window.localStorage에 아무것도 없을 때 나오는 기본값",
+          done: true,
+        },
+      ];
 
 const todoReducer = (state, action) => {
   switch (action.type) {
@@ -38,13 +33,21 @@ const todoReducer = (state, action) => {
   }
 };
 
+const useLocalStorageState = (key, initialValue) => {};
+
+const useLocalStorageReducer = (reducer, initializer, storageKey) => {};
+
 const TodoStateContext = createContext();
 const TodoDispatchContext = createContext();
 const TodoNextIdContext = createContext();
 
 export const TodoProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(todoReducer, initialTodos);
+  const [state, dispatch] = useReducer(todoReducer, initialTodos());
   const nextId = useRef(5);
+
+  useEffect(() => {
+    window.localStorage.setItem("Todo", JSON.stringify(state));
+  }, [state]);
 
   return (
     <TodoStateContext.Provider value={state}>

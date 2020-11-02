@@ -42,7 +42,13 @@ const TodoHead = () => {
     <TodoHeadBlock>
       <h1>{dateStr}</h1>
       <div className="day">{dayName}</div>
-      <div className="tasks-left">할 일 {remain}개 남음</div>
+      <div className="tasks-left">
+        {todos.length > 0
+          ? remain > 0
+            ? `할 일 ${remain}개 남음`
+            : `다 했어요!`
+          : `할 일이 없어요...`}
+      </div>
     </TodoHeadBlock>
   );
 };
