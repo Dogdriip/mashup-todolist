@@ -4,7 +4,7 @@ const initialTodos = [
   {
     id: 1,
     text: "테스트 1",
-    done: true,
+    done: false,
   },
   {
     id: 2,
