@@ -13,7 +13,7 @@ const initialTodos = () =>
     : [
         {
           id: 1,
-          text: "window.localStorage에 아무것도 없을 때 나오는 기본값",
+          text: `window.localStorage.getItem("Todo")에 아무것도 없을 때 나오는 기본값`,
           done: true,
         },
       ];
@@ -32,10 +32,6 @@ const todoReducer = (state, action) => {
       throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
-
-const useLocalStorageState = (key, initialValue) => {};
-
-const useLocalStorageReducer = (reducer, initializer, storageKey) => {};
 
 const TodoStateContext = createContext();
 const TodoDispatchContext = createContext();
