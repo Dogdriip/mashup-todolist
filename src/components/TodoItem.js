@@ -13,19 +13,12 @@ const Remove = styled.div`
   &:hover {
     color: #ff6b6b;
   }
-
-  display: none;
 `;
 
 const TodoItemBlock = styled.div`
   display: flex;
   align-items: center;
   padding: 12px 0;
-  &:hover {
-    ${Remove} {
-      display: initial;
-    }
-  }
 `;
 
 const CheckCircle = styled.div`
