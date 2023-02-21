@@ -2,7 +2,7 @@
   "name": "mashup-todolist",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://driip.me/mashup-todolist",
+  "homepage": "https://dogdriip.github.io/mashup-todolist",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
